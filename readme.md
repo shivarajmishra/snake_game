@@ -8,6 +8,7 @@ Game link https://sankemario.netlify.app/
 - Score bar
 
 ## Game Controls
+- **Press Start:** to start the game.
 - **Arrow Keys:** Control the direction of the snake (up, down, left, right).
 
 ## Game Rules

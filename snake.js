@@ -8,6 +8,25 @@ snakeImg.src = 'snake_resized.gif';
 const foodImg = new Image();
 foodImg.src = 'mouse_resized.gif';
 
+// Ensure images are loaded before starting the game loop
+let imagesLoaded = 0;
+
+snakeImg.onload = () => {
+    imagesLoaded++;
+    checkImagesLoaded();
+};
+
+foodImg.onload = () => {
+    imagesLoaded++;
+    checkImagesLoaded();
+};
+
+function checkImagesLoaded() {
+    if (imagesLoaded === 2) {
+        gameLoop(); // Start the game loop after images are loaded
+    }
+}
+
 let snake = [{ x: 300, y: 300 }];
 let food = randomFoodPosition();
 let direction = { x: 0, y: 0 };
@@ -73,5 +92,3 @@ function gameLoop() {
 
     setTimeout(gameLoop, gameSpeed); // Continue the game loop with updated speed
 }
-
-gameLoop(); // Start the game

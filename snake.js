@@ -9,6 +9,7 @@ const context = canvas.getContext('2d');
 const collisionSound = document.getElementById('collisionSound');
 const eatingSound = document.getElementById('eatingSound');
 const pauseSound = document.getElementById('pauseSound');
+const backgroundMusic = document.getElementById('backgroundMusic'); // Background music element
 
 let gameRunning = false;
 let gamePaused = false;
@@ -69,15 +70,19 @@ document.addEventListener('keydown', function(e) {
     if (e.which === 37 && snake.dx === 0) {
         snake.dx = -grid;
         snake.dy = 0;
+        backgroundMusic.play(); // Start playing background music when moving
     } else if (e.which === 38 && snake.dy === 0) {
         snake.dy = -grid;
         snake.dx = 0;
+        backgroundMusic.play(); // Start playing background music when moving
     } else if (e.which === 39 && snake.dx === 0) {
         snake.dx = grid;
         snake.dy = 0;
+        backgroundMusic.play(); // Start playing background music when moving
     } else if (e.which === 40 && snake.dy === 0) {
         snake.dy = grid;
         snake.dx = 0;
+        backgroundMusic.play(); // Start playing background music when moving
     }
     // Spacebar for pausing the game
     if (e.which === 32) {
@@ -85,11 +90,13 @@ document.addEventListener('keydown', function(e) {
         context.fillStyle = '#fff';
         context.font = 'bold 30px Arial';
         if (gamePaused) {
-            pauseSound.play();
+            pauseSound.pause();
+            backgroundMusic.play(); // Start playing background music when moving
             context.fillText('Game Paused', canvas.width / 2 - 100, canvas.height / 2);           
         } else {
             // Resume the game
             pauseSound.play();
+            backgroundMusic.play(); // Start playing background music when moving
             animationFrame = requestAnimationFrame(loop);
         }
     } 
@@ -124,20 +131,24 @@ document.addEventListener('touchmove', function(e) {
         if (dx > 0 && snake.dx === 0) {
             snake.dx = grid;
             snake.dy = 0;
+            backgroundMusic.play(); // Start playing background music when moving
         // Left swipe
         } else if (dx < 0 && snake.dx === 0) {
             snake.dx = -grid;
             snake.dy = 0;
+            backgroundMusic.play(); // Start playing background music when moving
         }
     } else {
         // Down Swipe
         if (dy > 0 && snake.dy === 0) {
             snake.dy = grid;
             snake.dx = 0;
+            backgroundMusic.play(); // Start playing background music when moving
         // Up Swipe
         } else if (dy < 0 && snake.dy === 0) {
             snake.dy = -grid;
             snake.dx = 0;
+            backgroundMusic.play(); // Start playing background music when moving
         }
     }
 });
@@ -236,6 +247,9 @@ function loop() {
     });
 }
 
+// Set the volume to a desired level (e.g., 0.2 for 20% volume)
+backgroundMusic.volume = 0.1; // Adjust this value as needed
+
 // Start Game function
 function startGame() {
     if (gameRunning) {
@@ -255,6 +269,7 @@ function startGame() {
     startButton.style.display = 'none';
     gameOverScreen.style.display = 'none';
     scoreDisplay.textContent = score;
+    backgroundMusic.play(); // Start playing background music
     if (animationFrame) {
         cancelAnimationFrame(animationFrame);
     }
@@ -265,6 +280,7 @@ function startGame() {
 function endGame() {
     gameRunning = false;
     gamePaused = true;
+    backgroundMusic.pause(); // Start playing background music
     gameOverScreen.style.display = 'block';
     document.querySelector('.game-over .score-display').textContent = score;
     

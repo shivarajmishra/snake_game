@@ -56,7 +56,7 @@ canvas{
 .score-container {
     position: relative; /* Allows for absolute positioning of inner elements */
     text-align: center;
-    margin-bottom: 20px; /* Adjust spacing below */
+    margin-bottom: 10px; /* Adjust spacing below */
 }
 
 .score-display {

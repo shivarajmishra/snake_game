@@ -1,11 +1,11 @@
 ## Tutorial project adapted from Amir Bekhit @BekBrace
 
+Game link https://sankemario.netlify.app/
+
 ## Several modifications have been made:
 - Function to make snake dead if it hits the boundary wall
 - Background music by Vlad Krotov from Pixabay
 - Score bar
-
-Game link https://sankemario.netlify.app/
 
 ## Game Controls
 - **Arrow Keys:** Control the direction of the snake (up, down, left, right).

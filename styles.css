@@ -1,13 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&family=Press+Start+2P&display=swap');
+
+html, body{
+    height: 100%;
+    margin: 0;
+    background-color: #e5ebf0;
+
+}
+
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Press Start 2P", cursive;
+}
+
+.title{
+    text-align: center;
+}
+
+canvas{
+    border: 1px solid #748c72;
+    background: linear-gradient(#d4f280, #a8f297, #cbe985, #efef88); 
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+}
+
+
+.start-button{
+    font-family: "Press Start 2P", cursive;
+    margin-top: 10px;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    background-color: #061138;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 10px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.game-over{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: none;
+    font-size: 12px;
+}
+
+.score-container {
+    position: relative; /* Allows for absolute positioning of inner elements */
+    text-align: center;
+    margin-bottom: 20px; /* Adjust spacing below */
+}
+
+.score-display {
+    color: #eee7e7; /* Existing color */
+    font-size: 3em; /* Increase font size for better visibility */
+    font-family: 'Arial', sans-serif; /* Change to a more readable font */
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), /* White glow */
+                 0 0 30px rgba(0, 255, 0, 0.6); /* Green glow */
+    transition: transform 0.3s; /* Smooth scaling animation */
+}
+
+.score-display.increase {
+    transform: scale(1.2); /* Scale up when score increases */
+}
+
+.score-icon {
+    width: 30px; /* Size of the icon */
+    vertical-align: middle; /* Align with text */
+    margin-left: 10px; /* Space between score and icon */
+}
+
+/* Optional: Progress bar style */
+.progress-bar-container {
+    width: 100%;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.2); /* Background of the bar */
+    border-radius: 10px;
+    overflow: hidden; /* Ensures inner bar doesn't overflow */
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0; /* Start width */
+    background-color: #00ff00; /* Green bar */
+    transition: width 0.5s; /* Smooth transition */
+}
+
+/* General styles */
 body {
+    font-family: 'Arial', sans-serif;
+    background-color: #282c34;
+    color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
+    overflow: hidden; /* Prevent scrolling */
 }
 
-canvas {
-    background-color: #000;
-    border: 2px solid #fff;
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0; /* Behind other elements */
 }
+
+.planet {
+    position: absolute;
+    border-radius: 50%;
+    animation: glitter 2s infinite alternate;
+}
+
+/* Title styles */
+.title {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #ffcc00; /* Bright color for the title */
+}
+
+/* Canvas styles */
+canvas {
+    border: 2px solid #ffcc00;
+    border-radius: 5px;
+    background-color: #1c1e22; /* Dark background for the game */
+    z-index: 1; /* In front of the background */
+}
+
+/* Score container styles */
+.score-container {
+    font-size: 1.5em;
+    margin: 20px 0;
+}
+
+/* Button styles */
+.start-button {
+    background-color: #ffcc00; /* Bright yellow for buttons */
+    color: #282c34; /* Dark text color */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+}
+
+.start-button:hover {
+    background-color: #e6b800; /* Darker yellow on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Game Over styles */
+.game-over {
+    display: none;
+    background-color: #3b3f47; /* Match game container */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.game-over h2 {
+    margin: 10px 0;
+    color: #ffcc00; /* Bright color for the game over title */
+}
+
+.game-over p {
+    font-size: 1.5em;
+}
+
+/* Keyframes for glitter effect */
+@keyframes glitter {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.2);
+        opacity: 0.5;
+    }
+}
+
+

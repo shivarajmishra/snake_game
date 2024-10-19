@@ -2,12 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snake Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Snake</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <canvas id="gameCanvas" width="600" height="600"></canvas>
+    <div class="background"></div> <!-- Background for glittering planets -->
+    <div class="game-container">
+        <p class="title">SNAKE-MOUSE</p>
+        <canvas id="game" width="800" height="800"></canvas>
+        <div class="score-container">
+            <p>Score: <span class="score-display">0</span> <img src="star.gif" alt="Star" class="score-icon"></p>
+            <div class="progress-bar-container">
+                <div class="progress-bar" style="width: 0%"></div> <!-- Set the initial width to 0 -->
+            </div>
+        </div>        
+        <button class="start-button">Start</button>
+        <div class="game-over">
+            <h2>Game Over</h2>
+            <p>Final Score: <span class="score-display">0</span></p>
+            <button class="start-button">Try Again</button>
+            <audio src="coll.mp3" id="collisionSound"></audio> 
+            <audio src="eat.mp3" id="eatingSound"></audio>
+            <audio src="pause.mp3" id="pauseSound"></audio>
+        </div>
+    </div>
     <script src="snake.js"></script>
 </body>
 </html>

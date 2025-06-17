@@ -1,6 +1,6 @@
 ## Tutorial project adapted from Amir Bekhit @BekBrace
 
-Game link https://sankemario.netlify.app/
+Game link https://snakemario.netlify.app/
 
 ## Several modifications have been made:
 - Function to make snake dead if it hits the boundary wall
